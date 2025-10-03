@@ -1,0 +1,459 @@
+@use './utils/colors' as *;
+@use './base/fonts' as *;
+
+// RESET SCSS
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+
+// block scroll until titan animation ends
+// html,
+// body {
+// 	overflow: hidden;
+// }
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+	font-family: 'Karla', sans-serif;
+}
+
+body {
+	background-image: linear-gradient(
+		to right,
+		#020201,
+		#0d0d06,
+		#14140b,
+		#1a1a10,
+		#202013,
+		#202013,
+		#202013,
+		#202013,
+		#1a1a10,
+		#14140b,
+		#0d0d06,
+		#020201
+	);
+
+	z-index: 11111111;
+}
+
+*::selection {
+	color: rgb(179, 179, 179);
+	background-color: rgb(109, 0, 0);
+}
+
+.wrapper {
+	max-width: 1400px;
+}
+
+.title {
+	font-family: 'Attack on courier';
+}
+
+// HERO
+.hero {
+	position: relative;
+	width: 100%;
+	height: 50vh;
+	background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 100%);
+
+	&__titan-mobile {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+
+		.hero-titan-mobile {
+			width: 100%;
+		}
+	}
+
+	&__wall {
+		display: none;
+	}
+
+	&__titan {
+		display: none;
+	}
+
+	&__logo {
+		display: none;
+	}
+
+	.navigation {
+		position: absolute;
+		padding: 1em;
+		margin-left: 2em;
+		display: none;
+		justify-content: center;
+
+		z-index: 3;
+		font-size: 1.5rem;
+
+		&__item {
+			position: relative;
+			margin: 1em;
+			color: $text-color;
+			text-decoration: none;
+			text-transform: uppercase;
+			font-family: 'Attack on courier font';
+
+			&:hover {
+				color: #88726d;
+			}
+
+			// background under nav-items
+			// &::after {
+			// 	content: '';
+			// 	position: absolute;
+			// 	left: 0;
+			// 	bottom: 0;
+			// 	width: 100%;
+			// 	height: 0;
+			// 	background-color: rgb(83, 83, 83);
+			// 	transition: height 0.3s;
+			// 	z-index: -2;
+			// }
+
+			// &:hover::after {
+			// 	height: 100%;
+			// }
+		}
+	}
+}
+
+// MAIN CONTENT
+main {
+	.promo {
+		display: flex;
+		justify-content: center;
+		background-image: url('../assets/images/sparkle.png');
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	.promo__video {
+		position: relative;
+		margin: 2em 4em;
+		width: 100%;
+		max-width: 1080px; /* frame/video size */
+		aspect-ratio: 16 / 9; /* maintains a 16:9 aspect ratio */
+
+		img,
+		video {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			z-index: 2;
+		}
+
+		video {
+			width: 95%;
+			height: 95%;
+			z-index: 1;
+		}
+	}
+
+	/* fallback if browser does not support aspect ratio */
+	@supports not (aspect-ratio: 16/9) {
+		.promo__video {
+			height: 0;
+			padding-top: 56.25%; /* 9/16 = 56.25% */
+		}
+	}
+
+	// CORPS SECTION
+	.corps {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 2em;
+		color: $text-color;
+		margin: 0 auto;
+
+		&__title {
+			font-size: 3rem;
+			margin-bottom: 1em;
+		}
+
+		&__grid {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 2em;
+			margin-bottom: 2em;
+
+			.shield-img {
+				position: relative;
+				width: 100%;
+				max-width: 200px;
+				cursor: pointer;
+				transition: transform 0.3s, scale 0.3s;
+			}
+
+			.shield-img:hover {
+				scale: 1.1;
+				transform: translateY(-20px);
+			}
+		}
+
+		&__info {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			padding: 2em;
+			font-size: 1.6rem;
+			text-align: center;
+			min-height: 200px;
+			background-image: url('../assets/images/corps-info-bg.png');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-attachment: inherit;
+		}
+	}
+
+	.isayama {
+		img {
+			max-width: 600px;
+		}
+	}
+}
+
+// FOOTER
+.footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: $text-color;
+
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 36%, rgba(0, 0, 0, 1) 77%);
+
+	&__top {
+		display: flex;
+		align-items: center;
+	}
+
+	&__left {
+		width: 70%;
+		font-size: 0;
+	}
+
+	&__titan-img {
+		width: 100%;
+		max-height: 450px;
+	}
+
+	&__right {
+		display: flex;
+		flex-direction: column;
+		margin-left: 3em;
+	}
+
+	&__right-top,
+	&__right-bottom {
+		padding: 2em 0;
+	}
+	&__right-top {
+		color: 222;
+	}
+
+	&__bottom {
+		width: 100%;
+		text-align: center;
+		border-top: 1px solid #333;
+		padding: 1em 0;
+		line-height: 1.5;
+	}
+}
+
+// ANIMATIONS
+@keyframes shake {
+	0% {
+		transform: translate(0, 0);
+	}
+	20% {
+		transform: translate(-5px, 0);
+	}
+	40% {
+		transform: translate(5px, 0);
+	}
+	60% {
+		transform: translate(-3px, 0);
+	}
+	80% {
+		transform: translate(3px, 0);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+}
+
+@keyframes titanScale {
+	0% {
+		scale: 1;
+	}
+
+	100% {
+		scale: 1.05;
+	}
+}
+
+@keyframes titan-rise {
+	from {
+		transform: translateY(49%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+// MEDIA QUERIES
+
+@media (width >= 480px) {
+	html {
+		font-size: 62.5%;
+	}
+}
+
+@media (width >= 768px) {
+	html {
+		font-size: 68.75%;
+	}
+
+	.hero {
+		animation: shake 0.6s ease-in-out 3; /* 0.6sec, 3 times */
+		height: auto;
+
+		&__titan-mobile {
+			display: none;
+		}
+
+		&__wall {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 2;
+
+			.hero-wall {
+				width: 100%;
+			}
+		}
+
+		&__titan {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 1;
+
+			.hero-titan {
+				width: 100%;
+				transform: translateY(49%);
+			}
+		}
+
+		&__logo {
+			position: absolute;
+			bottom: 5em;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 10;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			.hero-aot {
+				width: 100%;
+				max-width: 40em;
+			}
+		}
+
+		.navigation {
+			display: flex;
+		}
+	}
+
+	.hero.show-titan .hero-titan {
+		animation: titan-rise 3s ease-out forwards, titanScale 2s 3s forwards;
+	}
+}
+
+@media (width >= 767px) {
+	.hero {
+		height: 55vh; /* pełny ekran */
+	}
+}
+
+@media (width >= 900px) {
+	.hero {
+		height: 60vh; /* pełny ekran */
+	}
+}
+
+@media (width >= 1000px) {
+	html {
+		font-size: 75%;
+	}
+	.hero {
+		height: 65vh; /* pełny ekran */
+	}
+}
+
+@media (width >= 1100px) {
+	.hero {
+		height: 70vh; /* pełny ekran */
+	}
+}
+
+@media (width >= 1200px) {
+	html {
+		font-size: 81.25%;
+	}
+	.hero {
+		height: 75vh; /* pełny ekran */
+	}
+}
+
+@media (width >= 1300px) {
+	.hero {
+		height: 80vh; /* pełny ekran */
+	}
+}
+
+@media (width >= 1400px) {
+	.hero {
+		height: 85vh; /* pełny ekran */
+	}
+}
+@media (width >= 1500px) {
+	html {
+		font-size: 87.5%;
+	}
+
+	.hero {
+		height: 90vh; /* pełny ekran */
+	}
+}
+
+@media (width >= 1700px) {
+	.hero {
+		height: 100vh; /* pełny ekran */
+	}
+}
