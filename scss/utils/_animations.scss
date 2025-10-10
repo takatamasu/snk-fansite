@@ -1,0 +1,51 @@
+// ANIMATIONS
+@keyframes shake {
+	0% {
+		transform: translate(0, 0);
+	}
+	20% {
+		transform: translate(-5px, 0);
+	}
+	40% {
+		transform: translate(5px, 0);
+	}
+	60% {
+		transform: translate(-3px, 0);
+	}
+	80% {
+		transform: translate(3px, 0);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+}
+
+@keyframes handScale {
+	0% {
+		scale: 1;
+	}
+
+	100% {
+		scale: 1.03;
+	}
+}
+
+@keyframes titanScale {
+	0% {
+		scale: 1;
+	}
+
+	100% {
+		scale: 0.97;
+	}
+}
+
+@keyframes titan-rise {
+	from {
+		transform: translateY(49%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+

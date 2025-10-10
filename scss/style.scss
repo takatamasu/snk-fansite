@@ -1,57 +1,11 @@
+@use './base/reset' as *;
+
 @use './utils/colors' as *;
+@use './utils/animations' as *;
+@use './utils/queries' as *;
 @use './base/fonts' as *;
 
-// RESET SCSS
-*,
-*::after,
-*::before {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
-
-// block scroll until titan animation ends
-// html,
-// body {
-// 	overflow: hidden;
-// }
-
-html {
-	font-size: 62.5%;
-	scroll-behavior: smooth;
-	font-family: 'Karla', sans-serif;
-}
-
-body {
-	background-image: linear-gradient(
-		to right,
-		#020201,
-		#0d0d06,
-		#14140b,
-		#1a1a10,
-		#202013,
-		#202013,
-		#202013,
-		#202013,
-		#1a1a10,
-		#14140b,
-		#0d0d06,
-		#020201
-	);
-}
-
-*::selection {
-	color: rgb(179, 179, 179);
-	background-color: rgb(109, 0, 0);
-}
-
-.wrapper {
-	max-width: 1400px;
-}
-
-.title {
-	font-family: 'Attack on courier';
-}
+@use './base/base' as *;
 
 // NAVIGATION
 .navigation {
@@ -59,6 +13,7 @@ body {
 }
 
 // MAIN CONTENT
+
 main {
 	// HERO
 	.hero {
@@ -80,21 +35,43 @@ main {
 		}
 
 		/* width <= 768px */
-		&__wall {
-			display: none;
-		}
-
+		.navigation,
+		&__wall,
 		&__titan,
-		&__titan-hand {
-			display: none;
-		}
-
+		&__titan-hand,
 		&__logo {
 			display: none;
 		}
+	}
 
-		.navigation {
-			display: none;
+	//ABOUT SECTION
+
+	.about-aot {
+		width: 100%;
+		border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+		border-top: 2px solid rgba(0, 0, 0, 0.5);
+		background-image: radial-gradient(
+				circle,
+				rgba(24, 24, 15, 0.48) 0%,
+				rgba(24, 24, 15, 0.78) 44%,
+				rgba(0, 0, 0, 1) 84%
+			),
+			url('../assets/images/about-aot-bg.jpg');
+		background-position: top;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&__info {
+			padding: 1em;
+			text-align: center;
+			margin: 1em;
+			line-height: 1.5;
+			font-size: 1.5rem;
 		}
 	}
 
@@ -115,15 +92,13 @@ main {
 
 		&__grid {
 			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			gap: 2em;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.5em;
 			margin-bottom: 2em;
 
 			.shield-img {
 				position: relative;
-				width: 100%;
-				max-width: 200px;
-				cursor: pointer;
+				width: 15em;
 				transition: transform 0.3s, scale 0.3s;
 			}
 
@@ -136,7 +111,7 @@ main {
 		&__info {
 			display: flex;
 			justify-content: center;
-			align-items: center;
+			align-items: start;
 			width: 100%;
 			padding: 2em;
 			font-size: 1.6rem;
@@ -155,13 +130,13 @@ main {
 		justify-content: center;
 		background-image: url('../assets/images/sparkle.png');
 		background-position: center;
-		background-size: cover;
-		background-repeat: no-repeat;
+		// background-size: cover;
+		// background-repeat: no-repeat;
 	}
 
 	.promo__video {
 		position: relative;
-		margin: 2em 4em;
+		margin: 2em;
 		width: 100%;
 		max-width: 1080px; /* frame/video size */
 		aspect-ratio: 16 / 9; /* maintains a 16:9 aspect ratio */
@@ -194,9 +169,59 @@ main {
 		}
 	}
 
+	// ISAYAMA SECTION
 	.isayama {
-		img {
-			max-width: 600px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		width: 100%;
+		margin-top: 2em;
+		padding: 3em;
+		font-size: 1.5em;
+		overflow: hidden;
+
+		background-color: rgba(0, 0, 0, 0.3);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		&__section1,
+		&__section2 {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			max-width: 1600px;
+		}
+
+		&__section2 {
+			margin-top: 2em;
+		}
+
+		&__info1,
+		&__info2 {
+			width: 50%;
+		}
+
+		&__img1,
+		&__img2 {
+			width: 40%;
+			img {
+				width: 100%;
+			}
+		}
+
+		&__img1 {
+			display: flex;
+			justify-content: end;
+		}
+
+		&__img2 {
+			display: flex;
+			justify-content: start;
 		}
 	}
 }
@@ -206,6 +231,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	font-size: 1.1rem;
 	color: $text-color;
 
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 36%, rgba(0, 0, 0, 1) 77%);
@@ -213,11 +239,13 @@ main {
 	&__top {
 		display: flex;
 		align-items: center;
+		flex-direction: column;
 	}
 
 	&__left {
-		width: 70%;
+		width: 100%;
 		font-size: 0;
+		order: 3;
 	}
 
 	&__titan-img {
@@ -229,14 +257,81 @@ main {
 		display: flex;
 		flex-direction: column;
 		margin-left: 3em;
+		margin-top: 3em;
+		order: 2;
 	}
 
 	&__right-top,
 	&__right-bottom {
-		padding: 2em 0;
+		padding: 1em 0;
 	}
 	&__right-top {
-		color: 222;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+
+		a {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 2.8em;
+			height: 2.8em;
+			margin: 1em;
+			border-radius: 50%;
+			text-decoration: none;
+			line-height: 0;
+			background-color: transparent;
+			transition: transform 0.3s ease;
+			overflow: hidden;
+
+			&:hover {
+				transform: scale(1.1);
+			}
+
+			.footer-icon {
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+
+			.crunchyroll-icon {
+				color: $text-color;
+
+				&:hover {
+					color: #ff9956;
+				}
+			}
+			.facebook-icon {
+				color: $text-color;
+
+				&:hover {
+					color: #4a98ff;
+				}
+			}
+			.x-icon {
+				color: $text-color;
+
+				&:hover {
+					color: rgb(155, 155, 155);
+				}
+			}
+		}
+	}
+
+	&__right-bottom {
+		.kodansha-logo {
+			width: 15em;
+			transition: scale 0.3s;
+			cursor: pointer;
+
+			img {
+				width: 100%;
+			}
+
+			&:hover {
+				scale: 1.05;
+			}
+		}
 	}
 
 	&__bottom {
@@ -246,185 +341,36 @@ main {
 		padding: 1em 0;
 		line-height: 1.5;
 	}
-}
 
-// ANIMATIONS
-@keyframes shake {
-	0% {
-		transform: translate(0, 0);
-	}
-	20% {
-		transform: translate(-5px, 0);
-	}
-	40% {
-		transform: translate(5px, 0);
-	}
-	60% {
-		transform: translate(-3px, 0);
-	}
-	80% {
-		transform: translate(3px, 0);
-	}
-	100% {
-		transform: translate(0, 0);
-	}
-}
-
-@keyframes titanScale {
-	0% {
-		scale: 1;
+	&__info {
+		display: none;
 	}
 
-	100% {
-		scale: 1.05;
-	}
-}
+	&__info-author {
+		position: relative;
+		z-index: 1;
 
-@keyframes titan-rise {
-	from {
-		transform: translateY(49%);
-	}
-	to {
-		transform: translateY(0);
-	}
-}
-
-// MEDIA QUERIES
-
-@media (width >= 480px) {
-	html {
-		font-size: 62.5%;
-	}
-}
-
-@media (width >= 768px) {
-	html {
-		font-size: 68.75%;
-	}
-
-	.navigation {
-		display: flex;
-
-		position: absolute;
-		padding: 1em;
-		margin-left: 2em;
-		justify-content: center;
-
-		z-index: 3;
-		font-size: 1.5rem;
-
-		&__item {
-			position: relative;
-			margin: 1em;
+		a {
 			color: $text-color;
 			text-decoration: none;
-			text-transform: uppercase;
-			font-family: 'Attack on courier font';
+		}
 
-			&:hover {
-				color: #88726d;
-			}
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 0;
+			background-color: rgb(126, 37, 37);
+			transition: height 0.3s;
+			z-index: -1;
+		}
 
-			// background under nav-items
-			// &::after {
-			// 	content: '';
-			// 	position: absolute;
-			// 	left: 0;
-			// 	bottom: 0;
-			// 	width: 100%;
-			// 	height: 0;
-			// 	background-color: rgb(83, 83, 83);
-			// 	transition: height 0.3s;
-			// 	z-index: -2;
-			// }
-
-			// &:hover::after {
-			// 	height: 100%;
-			// }
+		&:hover::after {
+			height: 100%;
 		}
 	}
-
-	main {
-		.hero {
-			padding-top: 60%;
-			animation: shake 0.6s ease-in-out 3; /* 0.6sec, 3 times */
-			height: auto;
-
-			&__titan-mobile {
-				display: none;
-			}
-
-			&__wall {
-				display: block;
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				z-index: 2;
-
-				.hero-wall {
-					width: 100%;
-				}
-			}
-
-			&__titan,
-			&__titan-hand {
-				display: block;
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				z-index: 1;
-
-				.hero-titan,
-				.hero-titan-hand {
-					width: 100%;
-					transform: translateY(49%);
-				}
-			}
-
-			&__logo {
-				position: absolute;
-				bottom: 10%;
-				left: 50%;
-				transform: translateX(-50%);
-				z-index: 10;
-
-				display: flex;
-				justify-content: center;
-				align-items: center;
-
-				.hero-aot {
-					width: 100%;
-					width: 40em;
-				}
-			}
-		}
-	}
-
-	.hero.show-titan .hero-titan {
-		animation: titan-rise 3s ease-out forwards;
-	}
-
-	.hero.show-titan .hero-titan-hand {
-		animation: titan-rise 3s ease-out forwards, titanScale 2s 3s forwards;
-	}
 }
 
-@media (width >= 1000px) {
-	html {
-		font-size: 75%;
-	}
-}
-
-@media (width >= 1200px) {
-	html {
-		font-size: 81.25%;
-	}
-}
-
-@media (width >= 1500px) {
-	html {
-		font-size: 87.5%;
-	}
-}
+@include queries;

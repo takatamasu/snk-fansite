@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
         rel="stylesheet">
     <!-- SVGs -->
-    <object type="image/svg+xml" data="./assets/svg/icons.svg" style="display:none"></object>
+    <object type="image/svg+xml" data="./assets/icons/icons.svg" style="display:none"></object>
     <!-- CSS  -->
     <link rel="stylesheet" href="./css/style.css">
 
@@ -70,6 +70,18 @@
 
         </header>
 
+        <section class="about-aot">
+            <div class="about-aot__info wrapper">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam dolore
+                saepe
+                explicabo laboriosam cum dolorum officia laudantium quae fugit nemo aliquam, ducimus est recusandae
+                nulla. Et ducimus omnis sapiente accusamus illo, quam reprehenderit, nobis maxime in ex officia quisquam
+                nisi impedit nostrum non obcaecati at atque explicabo rerum natus dolorum minima rem voluptas incidunt?
+                Fuga quibusdam quaerat veritatis aperiam atque fugit autem dicta vitae aliquam ipsa saepe totam eaque,
+                veniam sed illum placeat dolorem quod? Ipsum debitis pariatur sit! Fugit, assumenda quo inventore culpa
+                molestias qui obcaecati at accusantium. Delectus, in deserunt placeat corrupti neque voluptates illo
+                magni quam quo.</div>
+        </section>
+
         <!-- CORPS SECTION  -->
         <section class="corps wrapper">
             <h2 class="corps__title title">Corps</h2>
@@ -107,29 +119,28 @@
             </div>
         </section>
 
-        <!-- 
+
         <section class="isayama">
-            <img src="./assets/images/xx-hajime-isayama-auctioning-four-drawn-on-and-autographed-v0-4pjf1w3y77ha1.2.png"
-                alt="">
-            <img src="./assets/images/xx-ed56d69aa2829600610042c745d213c6_1919x1079_crop_center.2.png" alt="">
-        </section> -->
+            <div class="isayama__section1">
+                <div class="isayama__img1"><img src="./assets/images/isayama2.png" alt=""></div>
+                <p class="isayama__info1">Hajime Isayama is a Japanese manga artist, best known for creating the
+                    globally acclaimed series Attack on Titan. He was born on August 29, 1986, in Ōyama, Ōita
+                    Prefecture, Japan. Isayama’s distinctive storytelling style and dark themes have earned him
+                    international recognition and numerous awards.</p>
+            </div>
 
 
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+
+            <div class="isayama__section2">
+                <p class="isayama__info2">While working on Attack on Titan, Isayama developed a complex world filled
+                    with moral ambiguity and intense human conflict. His dedication and attention to detail made the
+                    series a modern manga masterpiece.</p>
+                <div class="isayama__img2"><img src="./assets/images/isayama1.png" alt=""></div>
+            </div>
+
+        </section>
+
+
         <br>
         <br>
         <br>
@@ -163,24 +174,47 @@
 
             <div class="footer__right">
                 <div class="footer__right-top">
-                    <h3>Media społecznościowe</h3>
-                    <p>Tutaj będą ikony i linki do facebooków itp.</p>
+
+                    <a href="https://www.crunchyroll.com/series/GR751KNZY/attack-on-titan?srsltid=AfmBOopCecnMNubpEUt9i_dHvPjNRpdaAxhsXnLEP0n7HkEqFuE00FB5"
+                        target="_blank" rel="noopener noreferrer" aria-label="Crunchyroll">
+                        <svg class="footer-icon crunchyroll-icon">
+                            <use href="./assets/icons/icons.svg#icon-crunchyroll"></use>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.facebook.com/AttackOnTitan/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Facebook">
+                        <svg class="footer-icon facebook-icon">
+                            <use href="./assets/icons/icons.svg#icon-facebook"></use>
+                        </svg>
+                    </a>
+
+                    <a href="https://x.com/attackontitanen" target="_blank" rel="noopener noreferrer" aria-label="X">
+                        <svg class="footer-icon x-icon">
+                            <use href="./assets/icons/icons.svg#icon-x"></use>
+                        </svg>
+                    </a>
+
                 </div>
                 <div class="footer__right-bottom">
-                    <h3>Inne ważne odnośniki </h3>
-                    <p>Tutaj będą inne rzeczy</p>
+                    <div class="kodansha-logo">
+                        <a href="https://www.kodansha.co.jp/" target="_black"><img
+                                src="./assets/images/kodansha-logo.png" alt=""></a>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="footer__bottom">
-            <p class="footer__copyright">Based on the manga &copy;Shingeki no Kyojin by Hajime Isayama originally
-                serialized in the monthly BESSATSU
-                SHONEN magazine published by Kodansha Ltd.</p>
+            <p class="footer__copyright">Based on the manga &copy;Shingeki no Kyojin by Hajime Isayama, originally
+                serialized in the monthly „BESSATSU
+                SHONEN” magazine published by Kodansha Ltd.</p>
             <p class="footer__info">Information about all used assets and their authors can be found in the README.md
                 file
             </p>
-            <p class="footer__info">Website made with &nbsp;♡&nbsp; by <span class="footer__info-author">Asu</span> </p>
+            <p class="footer__info2">Website made with &nbsp;♡&nbsp; by <span class="footer__info-author"><a
+                        href="https://github.com/takatamasu">Asu</a></span>
+            </p>
         </div>
     </footer>
 

@@ -1,0 +1,47 @@
+@use './fonts' as *;
+@use '../utils/colors' as *;
+
+// block scroll until titan animation ends
+html,
+// body {
+// 	overflow: hidden;
+// }
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+	font-family: 'Karla', sans-serif;
+}
+
+body {
+	background-image: linear-gradient(
+		to right,
+		#020201,
+		#0d0d06,
+		#14140b,
+		#1a1a10,
+		#202013,
+		#202013,
+		#202013,
+		#202013,
+		#1a1a10,
+		#14140b,
+		#0d0d06,
+		#020201
+	);
+
+	color: $text-color;
+}
+
+*::selection {
+	color: rgb(179, 179, 179);
+	background-color: rgb(109, 0, 0);
+}
+
+.wrapper {
+	max-width: 1400px;
+}
+
+.title {
+	font-family: 'Attack on courier font';
+}

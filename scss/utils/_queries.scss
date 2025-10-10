@@ -1,0 +1,212 @@
+@use './colors' as *;
+@use './animations' as *;
+
+@use '../base/reset' as *;
+@use '../base/fonts' as *;
+
+// BREAKPOINTS
+
+@mixin queries {
+	// MEDIA QUERIES
+	@media (width >= 768px) {
+		html {
+			font-size: 70%;
+		}
+		.navigation {
+			display: flex;
+
+			position: absolute;
+			padding: 1em;
+			margin-left: 2em;
+			justify-content: center;
+
+			z-index: 3;
+			font-size: 1.5rem;
+
+			&__item {
+				position: relative;
+				margin: 1em;
+				color: $text-color;
+				text-decoration: none;
+				text-transform: uppercase;
+				font-family: 'Attack on courier font';
+
+				&:hover {
+					color: #88726d;
+				}
+			}
+		}
+
+		main {
+			.hero {
+				padding-top: 60%;
+				animation: shake 0.6s ease-in-out 3; /* 0.6sec, 3 times */
+				height: auto;
+
+				&__titan-mobile {
+					display: none;
+				}
+
+				&__wall {
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					z-index: 2;
+
+					.hero-wall {
+						width: 100%;
+					}
+				}
+
+				&__titan,
+				&__titan-hand {
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					z-index: 1;
+
+					.hero-titan,
+					.hero-titan-hand {
+						width: 100%;
+						transform: translateY(49%);
+					}
+				}
+
+				&__logo {
+					position: absolute;
+					bottom: 10%;
+					left: 50%;
+					transform: translateX(-50%);
+					z-index: 10;
+
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					.hero-aot {
+						width: 100%;
+						width: 40em;
+					}
+				}
+			}
+
+			.about-aot {
+				min-height: 500px;
+				&__info {
+					padding: 2em;
+					background-color: rgba(0, 0, 0, 0.5);
+					border-radius: 10px;
+				}
+			}
+
+			.corps {
+				&__grid {
+					grid-template-columns: repeat(4, 1fr);
+				}
+			}
+		}
+
+		.hero.show-titan .hero-titan {
+			animation: titan-rise 3s ease-out forwards, titanScale 2s 3s forwards;
+		}
+
+		.hero.show-titan .hero-titan-hand {
+			animation: titan-rise 3s ease-out forwards, handScale 2s 3s forwards;
+		}
+
+		.footer {
+			&__top {
+				flex-direction: row;
+			}
+
+			&__right-top {
+				margin-right: 0.8em;
+			}
+
+			&__right-top,
+			&__right-bottom {
+				padding: 2em 0;
+			}
+
+			&__right-bottom {
+				margin-bottom: -4em;
+			}
+
+			&__left {
+				width: 70%;
+				order: 1;
+			}
+
+			&__info {
+				display: block;
+			}
+		}
+
+		@media (width >= 992px) {
+			html {
+				font-size: 75%;
+			}
+
+			main {
+				.isayama {
+					&__section1 {
+						text-align: left;
+					}
+
+					&__section2 {
+						text-align: right;
+					}
+
+					&__section1,
+					&__section2 {
+						flex-direction: row;
+					}
+
+					&__info1,
+					&__info2 {
+						line-height: 1.5;
+					}
+
+					&__info1 {
+						width: 60%;
+					}
+
+					&__info2 {
+						width: 40%;
+					}
+
+					&__img1 {
+						img {
+							width: 100%;
+							max-width: 600px;
+							margin: 0;
+						}
+					}
+
+					&__img2 {
+						img {
+							max-width: 800px;
+							margin: 0;
+						}
+					}
+				}
+			}
+		}
+
+		@media (width >= 1200px) {
+			html {
+				font-size: 80%;
+			}
+		}
+
+		@media (width >= 1400px) {
+			html {
+				font-size: 85%;
+			}
+		}
+	}
+}
