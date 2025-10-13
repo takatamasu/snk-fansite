@@ -241,10 +241,10 @@ main .isayama__section2 {
   margin-top: 2em;
 }
 main .isayama__info1, main .isayama__info2 {
-  width: 50%;
+  width: 80%;
 }
 main .isayama__img1, main .isayama__img2 {
-  width: 40%;
+  width: 100%;
 }
 main .isayama__img1 img, main .isayama__img2 img {
   width: 100%;
@@ -253,9 +253,14 @@ main .isayama__img1 {
   display: flex;
   justify-content: end;
 }
+main .isayama__info2 {
+  margin-top: 1em;
+  order: 2;
+}
 main .isayama__img2 {
   display: flex;
   justify-content: start;
+  order: 1;
 }
 
 .footer {
@@ -451,7 +456,7 @@ main .isayama__img2 {
     width: 40em;
   }
   main .about-aot {
-    min-height: 500px;
+    min-height: 400px;
   }
   main .about-aot__info {
     padding: 2em;
@@ -507,12 +512,21 @@ main .isayama__img2 {
     width: 60%;
   }
   main .isayama__info2 {
+    margin-top: 0;
+    width: 40%;
+    order: 1;
+  }
+  main .isayama__img1 {
     width: 40%;
   }
   main .isayama__img1 img {
     width: 100%;
     max-width: 600px;
     margin: 0;
+  }
+  main .isayama__img2 {
+    width: 40%;
+    order: 1;
   }
   main .isayama__img2 img {
     max-width: 800px;
@@ -522,6 +536,9 @@ main .isayama__img2 {
 @media (width >= 768px) and (width >= 1200px) {
   html {
     font-size: 80%;
+  }
+  .about-aot {
+    min-height: 450px;
   }
 }
 @media (width >= 768px) and (width >= 1400px) {

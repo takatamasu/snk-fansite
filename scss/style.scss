@@ -203,12 +203,12 @@ main {
 
 		&__info1,
 		&__info2 {
-			width: 50%;
+			width: 80%;
 		}
 
 		&__img1,
 		&__img2 {
-			width: 40%;
+			width: 100%;
 			img {
 				width: 100%;
 			}
@@ -218,10 +218,15 @@ main {
 			display: flex;
 			justify-content: end;
 		}
+		&__info2 {
+			margin-top: 1em;
+			order: 2;
+		}
 
 		&__img2 {
 			display: flex;
 			justify-content: start;
+			order: 1;
 		}
 	}
 }
