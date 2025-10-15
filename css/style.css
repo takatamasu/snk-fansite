@@ -145,7 +145,7 @@ main .corps {
   margin: 0 auto;
 }
 main .corps__title {
-  font-size: 3rem;
+  font-size: 2.8rem;
   margin-bottom: 1em;
 }
 main .corps__grid {
@@ -261,6 +261,57 @@ main .isayama__img2 {
   display: flex;
   justify-content: start;
   order: 1;
+}
+main .universe {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 4em 0;
+}
+main .universe__title {
+  margin-bottom: 2em;
+  font-size: 2.8rem;
+}
+main .universe__carousel {
+  width: 100%;
+}
+main .universe__track {
+  display: flex;
+  gap: 4em;
+}
+main .universe__item {
+  flex: 0 0 auto;
+  width: 150px;
+  text-align: center;
+}
+main .universe__item p {
+  font-size: 1.4rem;
+  margin-top: 0.8em;
+}
+main .universe__img-wrapper {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+main .universe__img-wrapper img {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+main .universe__img-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  transition: opacity 0.3s ease;
+}
+main .universe__img-wrapper:hover img {
+  transform: scale(0.95);
+}
+main .universe__img-wrapper:hover::after {
+  opacity: 0;
 }
 
 .footer {
@@ -465,6 +516,9 @@ main .isayama__img2 {
   }
   main .corps__grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+  main .universe__item {
+    width: 200px;
   }
   .hero.show-titan .hero-titan {
     animation: titan-rise 3s ease-out forwards, titanScale 2s 3s forwards;

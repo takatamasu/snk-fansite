@@ -108,6 +108,12 @@
 					grid-template-columns: repeat(4, 1fr);
 				}
 			}
+
+			.universe {
+				&__item {
+					width: 200px;
+				}
+			}
 		}
 
 		.hero.show-titan .hero-titan {

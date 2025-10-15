@@ -44,3 +44,32 @@ corpsUnits.forEach(unit => {
 		corpsInfo.textContent = 'Discover all the divisions by hovering over each one.'
 	})
 })
+
+
+const track = document.querySelector(".universe__track");
+const items = Array.from(track.children);
+
+// save the width of the ORIGINAL track before duplication
+const originalWidth = track.scrollWidth;
+
+items.forEach((item) => {
+  const clone = item.cloneNode(true);
+  track.appendChild(clone);
+});
+
+let scrollAmount = 0;
+const speed = 0.5;
+
+function animate() {
+  scrollAmount -= speed;
+
+  // if the shift reaches the width of the original set, reset
+  if (Math.abs(scrollAmount) >= originalWidth) {
+    scrollAmount = 0;
+  }
+
+  track.style.transform = `translateX(${scrollAmount}px)`;
+  requestAnimationFrame(animate);
+}
+
+animate(); 
