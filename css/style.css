@@ -120,7 +120,7 @@ main .about-aot {
   border-bottom: 2px solid rgba(0, 0, 0, 0.5);
   border-top: 2px solid rgba(0, 0, 0, 0.5);
   background-image: radial-gradient(circle, rgba(24, 24, 15, 0.48) 0%, rgba(24, 24, 15, 0.78) 44%, rgb(0, 0, 0) 84%), url("../assets/images/about-aot-bg.webp");
-  background-position: top;
+  background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -134,6 +134,10 @@ main .about-aot__info {
   margin: 1em;
   line-height: 1.5;
   font-size: 1.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 main .corps {
   display: flex;
@@ -275,6 +279,7 @@ main .universe__title {
 }
 main .universe__carousel {
   width: 100%;
+  overflow: hidden;
 }
 main .universe__track {
   display: flex;
@@ -513,6 +518,8 @@ main .universe__img-wrapper:hover::after {
     padding: 2em;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+    max-height: none;
+    overflow: visible;
   }
   main .corps__grid {
     grid-template-columns: repeat(4, 1fr);
