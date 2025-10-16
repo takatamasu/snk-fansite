@@ -5,54 +5,58 @@
 @use '../base/fonts' as *;
 
 // BREAKPOINTS
-
 @mixin queries {
 	// MEDIA QUERIES
 	@media (width >= 768px) {
 		html {
 			font-size: 70%;
 		}
-		.navigation {
-			display: flex;
+		// .navigation {
+		// 	display: flex;
 
-			position: absolute;
-			padding: 1em;
-			margin-left: 2em;
-			justify-content: center;
+		// 	position: absolute;
+		// 	padding: 1em;
+		// 	margin-left: 2em;
+		// 	justify-content: center;
 
-			z-index: 3;
-			font-size: 1.5rem;
+		// 	z-index: 3;
+		// 	font-size: 1.5rem;
 
-			&__item {
-				position: relative;
-				margin: 1em;
-				color: $text-color;
-				text-decoration: none;
-				text-transform: uppercase;
-				font-family: 'Attack on courier font';
+		// 	&__item {
+		// 		position: relative;
+		// 		margin: 1em;
+		// 		color: $text-color;
+		// 		text-decoration: none;
+		// 		text-transform: uppercase;
+		// 		font-family: 'Attack on courier font';
 
-				&:hover {
-					color: #88726d;
-				}
-			}
-		}
+		// 		&:hover {
+		// 			color: #88726d;
+		// 		}
+		// 	}
+		// }
 
 		main {
 			.hero {
-				padding-top: 60%;
-				animation: shake 0.6s ease-in-out 3; /* 0.6sec, 3 times */
 				height: auto;
+				padding-top: 55%;
+				animation: shake 0.6s ease-in-out 3; /* 0.6sec, 3 times */
 
 				&__titan-mobile {
 					display: none;
 				}
 
-				&__wall {
+				&__wall,
+				&__titan,
+				&__titan-hand {
 					display: block;
 					position: absolute;
 					top: 0;
 					left: 0;
 					width: 100%;
+				}
+
+				&__wall {
 					z-index: 2;
 
 					.hero-wall {
@@ -62,11 +66,6 @@
 
 				&__titan,
 				&__titan-hand {
-					display: block;
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 100%;
 					z-index: 1;
 
 					.hero-titan,
@@ -78,14 +77,13 @@
 
 				&__logo {
 					position: absolute;
-					bottom: 10%;
+					bottom: 6%;
 					left: 50%;
 					transform: translateX(-50%);
-					z-index: 10;
-
 					display: flex;
 					justify-content: center;
 					align-items: center;
+					z-index: 10;
 
 					.hero-aot {
 						width: 100%;
@@ -96,11 +94,13 @@
 
 			.about-aot {
 				min-height: 400px;
+
 				&__info {
+					max-height: none;
 					padding: 2em;
+					line-height: 1.5;
 					background-color: rgba(0, 0, 0, 0.5);
 					border-radius: 10px;
-					max-height: none;
 					overflow: visible;
 				}
 			}
@@ -152,6 +152,10 @@
 			&__info {
 				display: block;
 			}
+
+			&__bottom {
+				line-height: 1.5;
+			}
 		}
 
 		@media (width >= 992px) {
@@ -161,6 +165,8 @@
 
 			main {
 				.isayama {
+					padding: 3em;
+
 					&__section1 {
 						text-align: left;
 					}
@@ -191,6 +197,7 @@
 
 					&__img1 {
 						width: 40%;
+
 						img {
 							width: 100%;
 							max-width: 600px;

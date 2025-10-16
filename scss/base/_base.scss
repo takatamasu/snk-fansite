@@ -3,9 +3,9 @@
 
 // block scroll until titan animation ends
 html,
-// body {
-// 	overflow: hidden;
-// }
+body {
+	overflow: hidden;
+}
 
 html {
 	font-size: 62.5%;
@@ -34,8 +34,8 @@ body {
 }
 
 *::selection {
-	color: rgb(179, 179, 179);
-	background-color: rgb(109, 0, 0);
+	color: rgb(255, 255, 255);
+	background-color: rgb(90, 32, 26);
 }
 
 .wrapper {
@@ -44,4 +44,6 @@ body {
 
 .title {
 	font-family: 'Attack on courier font';
+	margin-bottom: 1em;
+	font-size: 2.5rem;
 }

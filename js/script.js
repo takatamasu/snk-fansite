@@ -3,22 +3,28 @@ document.addEventListener('DOMContentLoaded', () => {
 	const heroTitan = document.querySelector('.hero-titan')
 	const hero = document.querySelector('.hero')
 
-	/* After 3 seconds (after 'shake') add show-titan class */
-	setTimeout(() => {
-		hero.classList.add('show-titan')
-	}, 3000)
+	if (window.innerWidth > 768) {
+		/* After 3 seconds (after 'shake') add show-titan class */
+		setTimeout(() => {
+			hero.classList.add('show-titan')
+		}, 3000)
 
-	/* After another 2 seconds (when the titan finishes its animation), unlock the scroll. */
-	setTimeout(() => {
+		/* After another 2 seconds (when the titan finishes its animation), unlock the scroll. */
+		setTimeout(() => {
+			document.body.style.overflow = 'auto'
+			document.documentElement.style.overflow = 'auto'
+		}, 6000) // 3s shake + 2s animacji titan
+
+		/* video starts loading after titan animation */
+		/* listen for when the titan animation ends */
+		heroTitan.addEventListener('animationend', () => {
+			promoVideo.play()
+		})
+	} else {
 		document.body.style.overflow = 'auto'
 		document.documentElement.style.overflow = 'auto'
-	}, 6000) // 3s shake + 2s animacji titan
-
-	/* video starts loading after titan animation */
-	/* listen for when the titan animation ends */ 
-	heroTitan.addEventListener('animationend', () => {
 		promoVideo.play()
-	})
+	}
 })
 
 const corpsInfo = document.querySelector('.corps__info p')
@@ -45,31 +51,31 @@ corpsUnits.forEach(unit => {
 	})
 })
 
-
-const track = document.querySelector(".universe__track");
-const items = Array.from(track.children);
+// UNIVERSE CAROUSEL
+const track = document.querySelector('.universe__track')
+const items = Array.from(track.children)
 
 // save the width of the ORIGINAL track before duplication
-const originalWidth = track.scrollWidth;
+const originalWidth = track.scrollWidth
 
-items.forEach((item) => {
-  const clone = item.cloneNode(true);
-  track.appendChild(clone);
-});
+items.forEach(item => {
+	const clone = item.cloneNode(true)
+	track.appendChild(clone)
+})
 
-let scrollAmount = 0;
-const speed = 0.5;
+let scrollAmount = 0
+const speed = 0.5
 
 function animate() {
-  scrollAmount -= speed;
+	scrollAmount -= speed
 
-  // if the shift reaches the width of the original set, reset
-  if (Math.abs(scrollAmount) >= originalWidth) {
-    scrollAmount = 0;
-  }
+	// if the shift reaches the width of the original set, reset
+	if (Math.abs(scrollAmount) >= originalWidth) {
+		scrollAmount = 0
+	}
 
-  track.style.transform = `translateX(${scrollAmount}px)`;
-  requestAnimationFrame(animate);
+	track.style.transform = `translateX(${scrollAmount}px)`
+	requestAnimationFrame(animate)
 }
 
-animate(); 
+animate()
